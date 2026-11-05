@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/miraga-kivo/miraga-prompt-kit/schema/prompt-pack.schema.json",
+  "title": "Prompt Pack",
+  "type": "object",
+  "required": ["name", "version", "prompts"],
+  "additionalProperties": false,
+  "properties": {
+    "name": { "type": "string", "minLength": 1 },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "description": { "type": "string" },
+    "author": { "type": "string" },
+    "license": { "type": "string" },
+    "prompts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "media", "template"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "title": { "type": "string" },
+          "media": { "enum": ["image", "video"] },
+          "template": { "type": "string", "minLength": 1 },
+          "variables": {
+            "type": "object",
+            "additionalProperties": { "type": "string" },
+            "description": "Placeholder name -> hint or default value"
+          },
+          "shot_type": { "type": "string" },
+          "camera_movement": { "type": "string" },
+          "aspect_ratio": { "enum": ["1:1", "4:5", "3:2", "16:9", "9:16", "21:9"] },
+          "duration_seconds": { "type": "number", "minimum": 1, "maximum": 60 },
+          "style_tokens": { "type": "array", "items": { "type": "string" }, "maxItems": 5 },
+          "negative": { "type": "string" },
+          "tags": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  }
+}
