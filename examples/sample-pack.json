@@ -1,0 +1,42 @@
+{
+  "name": "starter-pack",
+  "version": "1.0.0",
+  "description": "A few reliable starting points for image and short video generation.",
+  "author": "miraga-kivo",
+  "license": "MIT",
+  "prompts": [
+    {
+      "id": "product-flat-lay",
+      "title": "Product flat lay",
+      "media": "image",
+      "template": "{product} on {surface}, {props}, overhead flat lay, soft diffused light, clean {color} background, commercial product photography",
+      "variables": { "product": "ceramic coffee mug", "surface": "linen cloth", "props": "coffee beans", "color": "beige" },
+      "shot_type": "overhead",
+      "aspect_ratio": "1:1",
+      "style_tokens": ["commercial product photography"],
+      "negative": "watermark, text, blurry",
+      "tags": ["product", "ecommerce"]
+    },
+    {
+      "id": "portrait-85mm",
+      "title": "Natural portrait",
+      "media": "image",
+      "template": "portrait of {person}, {expression}, close-up, 85mm, shallow depth of field, window light from the left, 35mm film grain",
+      "variables": { "person": "a young woman with curly hair", "expression": "gentle smile" },
+      "shot_type": "close-up",
+      "aspect_ratio": "4:5",
+      "style_tokens": ["35mm film grain"]
+    },
+    {
+      "id": "product-orbit-short",
+      "title": "Product hero orbit",
+      "media": "video",
+      "template": "slow orbit around {product} on a {surface}, soft studio light, subtle reflections, dark gradient background, commercial look",
+      "variables": { "product": "wireless earbuds case", "surface": "black acrylic block" },
+      "camera_movement": "orbit",
+      "aspect_ratio": "9:16",
+      "duration_seconds": 5,
+      "tags": ["product", "shorts"]
+    }
+  ]
+}
